@@ -1,11 +1,13 @@
 import random as rand
 
+heroname = input("Hej, vad heter du?\n")
 def main():
-    hjältenamn = "{hero.name}"
+    
+    hjältenamn = {heroname}
     hjältehp = 10
     hjältestyrka = rand.randint(0,10)
 
-    while hjältehp >= 0:        
+    while hjältehp >= 0:      
         print(
             """
 
@@ -13,6 +15,7 @@ def main():
             1. Välj dörr
             2. Kolla ryggsäck
             3. Kolla stats
+            4. Avsluta spelet
             
             """)
         
@@ -28,9 +31,3 @@ def main():
             print("Välj 1, 2 eller 3!")
 
 main()
-
-class zombie():
-    def __init__()
-    Health = 
-    Strenght = 
-    Färg = 
