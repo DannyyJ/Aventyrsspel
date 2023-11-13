@@ -27,7 +27,9 @@ def main():
             pass
         elif val == "3":
             pass
+        elif val == "4":
+            pass
         else:
-            print("Välj 1, 2 eller 3!")
+            print("Välj 1, 2, 3 eller 4!")
 
 main()
