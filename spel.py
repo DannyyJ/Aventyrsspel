@@ -1,7 +1,7 @@
 import random as rand
 
 def main():
-    hjältenamn = "Lennart"
+    hjältenamn = "{hero.name}"
     hjältehp = 10
     hjältestyrka = rand.randint(0,10)
 
