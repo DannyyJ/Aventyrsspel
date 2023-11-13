@@ -31,11 +31,23 @@ def main():
             3. Kolla stats
             
             """)
-        
+    
         val = input("")
-
         if val == "1":
-            pass
+
+            dörrval = " "
+            while dörrval not in "123":
+                print("Du ser 3 olika dörrar. Välj dörr 1, 2 eller 3")
+                dörrval = input("")
+                if dörrval == "1":
+                    pass
+                elif dörrval == "2":
+                    pass
+                elif dörrval == "3":
+                    pass
+                else:
+                    print(f"dörr {dörrval} finns inte. Välj dörr 1, 2 eller 3!")
+
         elif val == "2":
             pass
         elif val == "3":
