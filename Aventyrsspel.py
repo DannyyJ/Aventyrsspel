@@ -23,9 +23,9 @@ def item():
     else:
         print("Hopsan, du fick tyvvär inget :(")
 
-heroname = input("Hej, vad heter du?\n")
+
 def main():
-    
+    heroname = input("Hej, vad heter du?\n")
     hjältenamn = {heroname}
     hjältehp = 10
     hjältestyrka = rand.randint(0,10)
@@ -50,7 +50,9 @@ def main():
             pass
         elif val == "3":
             pass
+        elif val == "4":
+            pass
         else:
-            print("Välj 1, 2 eller 3!")
+            print("Välj 1, 2, 3 eller 4!")
 
 main()
