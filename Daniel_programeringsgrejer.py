@@ -1,8 +1,8 @@
-import random as rand
+import random
 
 
 def item():
-    procent = rand(1,100)
+    procent = random.randint(1,100)
     if procent == 1:
         print("Du fick en Laserpistol")
     elif procent == 2:
@@ -16,6 +16,13 @@ def item():
     elif procent > 34 and procent <= 54:
         print("Du fick en dagger")
     elif procent > 54 and procent <= 74:
+        print("Du fick 5 bandage")
+    elif procent > 74 and procent <= 89:
+        print("Du fick en Hälsedryck")
+    elif procent > 89 and procent <= 94:
+        print("Du fick en katana")
+    else:
+        print("Hopsan, du fick tyvvär inget :(")
 
     
 
@@ -50,3 +57,6 @@ def main():
             print("Välj 1, 2 eller 3!")
 
 main()
+
+föremålet = item()
+print(föremålet)
