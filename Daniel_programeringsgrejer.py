@@ -7,8 +7,16 @@ def item():
         print("Du fick en Laserpistol")
     elif procent == 2:
         print("Du fick ett lasersvärd")
+    elif procent > 2 and procent <=12:
+        print("Du fick en slägga")
+    elif procent > 12 and procent <=24:
+        print("Du fick ett svärd")
+    elif procent > 24 and procent <=34:
+        print("Du fick en battle axe")
+    elif procent > 34 and procent <= 54:
+        print("Du fick en dagger")
+    elif procent > 54 and procent <= 74:
 
-    elif procent > 2 and procent <=20:
     
 
 
