@@ -38,7 +38,7 @@ def main():
     hjältehp = 10
     hjältestyrka = rand.randint(0,10)
 
-     while hjältehp >= 0:        
+    while hjältehp >= 0:        
         print(
             """
 
