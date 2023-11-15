@@ -22,7 +22,7 @@ def main():
         styrka = rand.randint(4,10)
         färg = rand.choice(["blå", "grön", "gul"])
 
-        Ny_zombie = Zombie(hälsa, styrka, färg)
+        Ny_zombie = Zombie(styrka, färg)
         print(Ny_zombie.färg)
 
 
