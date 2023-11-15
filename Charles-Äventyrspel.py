@@ -8,18 +8,18 @@ class Zombie():
 
 def Fälla():
 
-def Monster():
+def Strid():
 
 def Kista():
 
 def main():
     hjältenamn = "Lennart"
     hjältehp = 10
-    hjältestyrka = rand.randint(0,10)
+    hjältestyrka = rand.randint(8,10)
 
     for i in range(100):
-        hälsa = rand.randint(1,10)
-        styrka = rand.randint(7,10)
+        hälsa = rand.randint(2,10)
+        styrka = rand.randint(4,10)
         färg = rand.choice(["blå", "grön", "gul"])
 
         Ny_zombie = Zombie(hälsa, styrka, färg)
