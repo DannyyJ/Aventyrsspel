@@ -69,10 +69,13 @@ def main():
 
                 if Vald_Händelse == "Fälla":
                     # Kalla på "def fälla"
+                    pass
                 elif Vald_Händelse == "Monster":
-                    # Kalla på "def monster"
+                    # Kalla på "def strid"
+                    pass
                 elif Vald_Händelse == "Kista":
                     # Kalla på "def kista"
+                    pass
                 
             dörrval = " "
             while dörrval not in "123":
