@@ -23,6 +23,14 @@ def item():
     else:
         print("Hopsan, du fick tyvvär inget :(")
 
+def strid(hs,fs,hp):
+    if hs > fs:
+        print("Du vann")
+    else:
+        print("Du förlora")
+        hp -= 1
+    return hp
+
 
 def main():
     heroname = input("Hej, vad heter du?\n")
