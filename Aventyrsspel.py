@@ -66,13 +66,6 @@ def dörr(x, hjältestyrka, hjältehp, inventory):
         inventory.append(Vunnet)
     
     return hjältehp, inventory
-        
-        
-
-# def inventory(läggtill)
-#     ryggsäck = []
-#     apend.ryggsäck(läggtill)
-
 def main():
     heroname = input("Hej, vad heter du?\n")
     hjältenamn = {heroname}
@@ -118,24 +111,22 @@ def main():
 
         elif val == "2":
             #Lägg till att se inventory
-            itemval = " "
-            while itemval not in "123":
-                print(
-            """
+            print(
+                """
 
-            Du öppnade din ryggsäck.
-            1. Byt Item
-            2. Släng bort item
-            3. Stäng ryggsäck
-            
-            """)
+                Du öppnade din ryggsäck.
+                1. Visa föremål
+                2. Släng bort item
+                3. Stäng ryggsäck
+                
+                """)
+            itemval = input("")
+            if itemval == "1":
                 print(inventory)
-                if itemval == "1":
-                    pass
-                elif itemval == "2":
-                    pass
-                elif itemval == "3":
-                    pass
+            elif itemval == "2":
+                int(input("Välj vilket föremål du vill ta bort(OBS! Du måste skriva rätt) "))
+            elif itemval == "3":
+                pass
         elif val == "3":
             pass
         elif val == "4":
