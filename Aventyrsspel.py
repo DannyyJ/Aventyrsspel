@@ -72,14 +72,15 @@ def main():
     hjältehp = 10
     hjältestyrka = rand.randint(5,10)
     inventory = []
+    hjältelv = 1
 
-    for i in range(100):
-        hälsa = rand.randint(2,10)
-        styrka = rand.randint(4,10)
-        färg = rand.choice(["blå", "grön", "gul"])
+    # for i in range(100):
+    #     hälsa = rand.randint(2,10)
+    #     styrka = rand.randint(4,10)
+    #     färg = rand.choice(["blå", "grön", "gul"])
 
-        Ny_zombie = Zombie(styrka, färg)
-        print(Ny_zombie.färg)
+    #     Ny_zombie = Zombie(styrka, färg)
+    #     print(Ny_zombie.färg)
     
 
     while hjältehp >= 0:        
@@ -113,12 +114,10 @@ def main():
             #Lägg till att se inventory
             print(
                 """
-
                 Du öppnade din ryggsäck.
                 1. Visa föremål
                 2. Släng bort item
                 3. Stäng ryggsäck
-                
                 """)
             itemval = input("")
             if itemval == "1":
@@ -128,7 +127,7 @@ def main():
             elif itemval == "3":
                 pass
         elif val == "3":
-            pass
+            print(f"Ditt hp är {hjältehp} \nDin styrka är {hjältestyrka}\nDin level är {hjältelv}")
         elif val == "4":
             exit("Du avslutar spelet")
         else:
