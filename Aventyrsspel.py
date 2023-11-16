@@ -1,4 +1,5 @@
 import random as rand
+import time
 
 def Item():
     procent = rand.randint(1,100)
@@ -43,12 +44,17 @@ def monster():
     
 
 def strid(hs,fs,hp):
-    print(f"Du mötte ett monster, hur ska det gå?!\nMonstrets styrka är {fs} och din styrka är {hs}")
+    print("Du mötte ett monster, hur ska det gå?!")
+    time.sleep(2)
+    print(f"Monstrets styrka är {fs} och din styrka är {hs}")
     if hs > fs:
         print("Du vann")
+    elif hs == fs:
+        print("Ni är lika starka så ingen av er förlorar")
     else:
         print("Du förlora")
         hp -= 1
+    time.sleep(2)
     return hp
 
 def dörr(x, hjältestyrka, hjältehp, inventory):
