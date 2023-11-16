@@ -49,7 +49,7 @@ def strid(hs,fs,hp,xp):
     print(f"Monstrets styrka är {fs} och din styrka är {hs}")
     if hs > fs:
         print("Du vann")
-        xp += 1
+        xp =+ 1
     elif hs == fs:
         print("Ni är lika starka så ingen av er förlorar")
     else:
@@ -63,10 +63,9 @@ def dörr(x, hjältestyrka, hjältehp, inventory, hjältelv):
     Vald_Händelse = rand.choice(Händelser)
     print(f"Bakom dörr {x}: {Vald_Händelse}")
     if Vald_Händelse == "Fälla":
-        # Kalla på "def fälla"
-        pass
+        print("Du har hamnat i en fälla!")
+        time.sleep(1)
     elif Vald_Händelse == "Monster":
-
         monsterstyrka= monster()
         strid(hjältestyrka, monsterstyrka, hjältehp, hjältelv)
     elif Vald_Händelse == "Kista":
@@ -79,7 +78,7 @@ def main():
     heroname = input("Hej, vad heter du?\n")
     hjältenamn = {heroname}
     hjältehp = 10
-    hjältestyrka = rand.randint(5,10)
+    hjältestyrka = rand.randint(1,4)
     inventory = []
     hjältelv = 1
 
