@@ -43,6 +43,7 @@ def monster():
     
 
 def strid(hs,fs,hp):
+    print(f"Du mötte ett monster, hur ska det gå?!\nMonstrets styrka är {fs} och din styrka är {hs}")
     if hs > fs:
         print("Du vann")
     else:
@@ -58,7 +59,7 @@ def dörr(x, hjältestyrka, hjältehp, inventory):
         # Kalla på "def fälla"
         pass
     elif Vald_Händelse == "Monster":
-        print("Du mötte ett monster, hur ska det gå?!")
+
         monsterstyrka= monster()
         strid(hjältestyrka, monsterstyrka, hjältehp)
     elif Vald_Händelse == "Kista":
