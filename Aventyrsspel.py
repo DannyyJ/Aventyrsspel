@@ -43,21 +43,22 @@ def monster():
     return 5
     
 
-def strid(hs,fs,hp):
+def strid(hs,fs,hp,xp):
     print("Du mötte ett monster, hur ska det gå?!")
     time.sleep(2)
     print(f"Monstrets styrka är {fs} och din styrka är {hs}")
     if hs > fs:
         print("Du vann")
+        xp += 1
     elif hs == fs:
         print("Ni är lika starka så ingen av er förlorar")
     else:
         print("Du förlora")
         hp -= 1
     time.sleep(2)
-    return hp
+    return hp, xp
 
-def dörr(x, hjältestyrka, hjältehp, inventory):
+def dörr(x, hjältestyrka, hjältehp, inventory, hjältelv):
     Händelser = ["Fälla", "Monster", "Kista"]
     Vald_Händelse = rand.choice(Händelser)
     print(f"Bakom dörr {x}: {Vald_Händelse}")
@@ -67,12 +68,13 @@ def dörr(x, hjältestyrka, hjältehp, inventory):
     elif Vald_Händelse == "Monster":
 
         monsterstyrka= monster()
-        strid(hjältestyrka, monsterstyrka, hjältehp)
+        strid(hjältestyrka, monsterstyrka, hjältehp, hjältelv)
     elif Vald_Händelse == "Kista":
         Vunnet=Item()
         inventory.append(Vunnet)
+        time.sleep(2)
     
-    return hjältehp, inventory
+    return hjältehp, inventory, hjältelv
 def main():
     heroname = input("Hej, vad heter du?\n")
     hjältenamn = {heroname}
@@ -109,11 +111,11 @@ def main():
                 print("Du ser 3 olika dörrar. Välj dörr 1, 2 eller 3")
                 dörrval = input("")
                 if dörrval == "1":
-                    hjältehp, inventory = dörr(1, hjältestyrka, hjältehp, inventory)
+                    hjältehp, inventory, hjältelv = dörr(1, hjältestyrka, hjältehp, inventory, hjältelv)
                 elif dörrval == "2":
-                    hjältehp, inventory = dörr(2, hjältestyrka, hjältehp, inventory)
+                    hjältehp, inventory, hjältelv = dörr(2, hjältestyrka, hjältehp, inventory, hjältelv)
                 elif dörrval == "3":
-                    hjältehp, inventory = dörr(3, hjältestyrka, hjältehp,inventory)
+                    hjältehp, inventory, hjältelv = dörr(3, hjältestyrka, hjältehp,inventory, hjältelv)
                 else:
                     print(f"dörr {dörrval} finns inte. Välj dörr 1, 2 eller 3!")
 
@@ -129,15 +131,20 @@ def main():
             itemval = input("")
             if itemval == "1":
                 print(inventory)
+                time.sleep(2)
             elif itemval == "2":
-                int(input("Välj vilket föremål du vill ta bort(OBS! Du måste skriva rätt) "))
+                x = int(input("Välj vilket föremål du vill ta bort(OBS! Du måste skriva rätt positon på listan) "))
+                x -= 1
+                inventory.pop(x)
+                print(f"Du har tagit bort itemet och nu har du dessa items {inventory}")
+                time.sleep(2)
             elif itemval == "3":
                 pass
         elif val == "3":
             print(f"Ditt hp är {hjältehp} \nDin styrka är {hjältestyrka}\nDin level är {hjältelv}")
+            time.sleep(2)
         elif val == "4":
             exit("Du avslutar spelet")
         else:
             print("Välj 1, 2, 3 eller 4")
-
 main()
