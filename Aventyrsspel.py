@@ -58,6 +58,13 @@ def strid(hs,fs,hp,xp):
     time.sleep(2)
     return hp, xp
 
+def fälla(hp):
+    bokstäver = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    bokstav = rand.choice(bokstäver)
+    svartid = (1,2,3)
+    tid = rand.choice(svartid)
+    
+
 def dörr(x, hjältestyrka, hjältehp, inventory, hjältelv):
     Händelser = ["Fälla", "Monster", "Kista"]
     Vald_Händelse = rand.choice(Händelser)
@@ -121,29 +128,6 @@ def main():
 
         elif val == "2":
             #Lägg till att se inventory
-<<<<<<< HEAD
-            itemval = " "
-            while itemval not in "123":
-                print(
-            """
-
-            Du öppnade din ryggsäck.
-            1. Byt Item
-            2. Släng bort item
-            3. Stäng ryggsäck
-            
-            """)
-                print(f"Ditt inventory: "(inventory))
-                itemval = input("")
-                if itemval == "1":
-                    pass
-                elif itemval == "2":
-                    pass
-                elif itemval == "3":
-                    pass
-                else:
-                    print("Välj 1,2 eller 3!")
-=======
             print(
                 """
                 Du öppnade din ryggsäck.
@@ -163,12 +147,11 @@ def main():
                 time.sleep(2)
             elif itemval == "3":
                 pass
->>>>>>> da7e9ffcddcc9720ee3aa4e9cb6183cc594a38ad
         elif val == "3":
             print(f"Ditt hp är {hjältehp} \nDin styrka är {hjältestyrka}\nDin level är {hjältelv}")
             time.sleep(2)
         elif val == "4":
             exit("Du avslutar spelet")
         else:
-            print("Välj 1, 2, 3 eller 4")
+            print("Välj 1, 2, 3 eller 4!")
 main()
