@@ -1,4 +1,5 @@
 import random as rand
+import time
 
 def Item():
     procent = rand.randint(1,100)
@@ -42,15 +43,22 @@ def monster():
     return 5
     
 
-def strid(hs,fs,hp):
+def strid(hs,fs,hp,xp):
+    print("Du mötte ett monster, hur ska det gå?!")
+    time.sleep(2)
+    print(f"Monstrets styrka är {fs} och din styrka är {hs}")
     if hs > fs:
         print("Du vann")
+        xp += 1
+    elif hs == fs:
+        print("Ni är lika starka så ingen av er förlorar")
     else:
         print("Du förlora")
         hp -= 1
-    return hp
+    time.sleep(2)
+    return hp, xp
 
-def dörr(x, hjältestyrka, hjältehp, inventory):
+def dörr(x, hjältestyrka, hjältehp, inventory, hjältelv):
     Händelser = ["Fälla", "Monster", "Kista"]
     Vald_Händelse = rand.choice(Händelser)
     print(f"Bakom dörr {x}: {Vald_Händelse}")
@@ -58,35 +66,30 @@ def dörr(x, hjältestyrka, hjältehp, inventory):
         # Kalla på "def fälla"
         pass
     elif Vald_Händelse == "Monster":
-        print("Du mötte ett monster, hur ska det gå?!")
+
         monsterstyrka= monster()
-        strid(hjältestyrka, monsterstyrka, hjältehp)
+        strid(hjältestyrka, monsterstyrka, hjältehp, hjältelv)
     elif Vald_Händelse == "Kista":
         Vunnet=Item()
         inventory.append(Vunnet)
+        time.sleep(2)
     
-    return hjältehp, inventory
-        
-        
-
-# def inventory(läggtill)
-#     ryggsäck = []
-#     apend.ryggsäck(läggtill)
-
+    return hjältehp, inventory, hjältelv
 def main():
     heroname = input("Hej, vad heter du?\n")
     hjältenamn = {heroname}
     hjältehp = 10
     hjältestyrka = rand.randint(5,10)
     inventory = []
+    hjältelv = 1
 
-    for i in range(100):
-        hälsa = rand.randint(2,10)
-        styrka = rand.randint(4,10)
-        färg = rand.choice(["blå", "grön", "gul"])
+    # for i in range(100):
+    #     hälsa = rand.randint(2,10)
+    #     styrka = rand.randint(4,10)
+    #     färg = rand.choice(["blå", "grön", "gul"])
 
-        Ny_zombie = Zombie(styrka, färg)
-        print(Ny_zombie.färg)
+    #     Ny_zombie = Zombie(styrka, färg)
+    #     print(Ny_zombie.färg)
     
 
     while hjältehp >= 0:        
@@ -108,16 +111,17 @@ def main():
                 print("Du ser 3 olika dörrar. Välj dörr 1, 2 eller 3")
                 dörrval = input("")
                 if dörrval == "1":
-                    hjältehp, inventory = dörr(1, hjältestyrka, hjältehp, inventory)
+                    hjältehp, inventory, hjältelv = dörr(1, hjältestyrka, hjältehp, inventory, hjältelv)
                 elif dörrval == "2":
-                    hjältehp, inventory = dörr(2, hjältestyrka, hjältehp, inventory)
+                    hjältehp, inventory, hjältelv = dörr(2, hjältestyrka, hjältehp, inventory, hjältelv)
                 elif dörrval == "3":
-                    hjältehp, inventory = dörr(3, hjältestyrka, hjältehp,inventory)
+                    hjältehp, inventory, hjältelv = dörr(3, hjältestyrka, hjältehp,inventory, hjältelv)
                 else:
                     print(f"dörr {dörrval} finns inte. Välj dörr 1, 2 eller 3!")
 
         elif val == "2":
             #Lägg till att se inventory
+<<<<<<< HEAD
             itemval = " "
             while itemval not in "123":
                 print(
@@ -139,11 +143,32 @@ def main():
                     pass
                 else:
                     print("Välj 1,2 eller 3!")
+=======
+            print(
+                """
+                Du öppnade din ryggsäck.
+                1. Visa föremål
+                2. Släng bort item
+                3. Stäng ryggsäck
+                """)
+            itemval = input("")
+            if itemval == "1":
+                print(inventory)
+                time.sleep(2)
+            elif itemval == "2":
+                x = int(input("Välj vilket föremål du vill ta bort(OBS! Du måste skriva rätt positon på listan) "))
+                x -= 1
+                inventory.pop(x)
+                print(f"Du har tagit bort itemet och nu har du dessa items {inventory}")
+                time.sleep(2)
+            elif itemval == "3":
+                pass
+>>>>>>> da7e9ffcddcc9720ee3aa4e9cb6183cc594a38ad
         elif val == "3":
-            pass
+            print(f"Ditt hp är {hjältehp} \nDin styrka är {hjältestyrka}\nDin level är {hjältelv}")
+            time.sleep(2)
         elif val == "4":
             exit("Du avslutar spelet")
         else:
             print("Välj 1, 2, 3 eller 4")
-
 main()
