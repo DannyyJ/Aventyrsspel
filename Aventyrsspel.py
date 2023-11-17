@@ -129,13 +129,16 @@ def main():
             3. Stäng ryggsäck
             
             """)
-                print(inventory)
+                print(f"Ditt inventory: "(inventory))
+                itemval = input("")
                 if itemval == "1":
                     pass
                 elif itemval == "2":
                     pass
                 elif itemval == "3":
                     pass
+                else:
+                    print("Välj 1,2 eller 3!")
         elif val == "3":
             pass
         elif val == "4":
