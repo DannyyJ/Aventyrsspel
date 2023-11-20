@@ -61,9 +61,6 @@ def strid(hs,fs,hp,xp):
 def fälla(hp):
     bokstäver = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     bokstav = rand.choice(bokstäver)
-    # svartid = (1,2,3)
-    # tid = rand.choice(svartid)
-    # slut = 0
     print("DU HAMNA I EN FÄLLA!")
     print(f"TRYCK: {bokstav}")
     start = time.time()
