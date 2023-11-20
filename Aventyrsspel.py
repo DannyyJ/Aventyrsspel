@@ -61,31 +61,72 @@ def strid(hs,fs,hp,xp):
 def fälla(hp):
     bokstäver = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     bokstav = rand.choice(bokstäver)
-    svartid = (1,2,3)
-    tid = rand.choice(svartid)
-    slut = 0
+    # svartid = (1,2,3)
+    # tid = rand.choice(svartid)
+    # slut = 0
+    print("DU HAMNA I EN FÄLLA!")
+    print(f"TRYCK: {bokstav}")
+    start = time.time()
+    svar = input()
+    if svar.lower() == bokstav.lower():
+        slut = time.time()
+        print(slut-start)
+        if slut - start < 3:
+            print("DU KLARADE DET")
+            time.sleep(2)
+        else:
+            print("Hopsan, Du hann inte och förlorade 1 hp")
+            hp -= 1
+            time.sleep(2)
+    
+    return hp
+
 
 def dörr(x, hjältestyrka, hjältehp, inventory, hjältelv):
     Händelser = ["Fälla", "Monster", "Kista"]
     Vald_Händelse = rand.choice(Händelser)
     print(f"Bakom dörr {x}: {Vald_Händelse}")
     if Vald_Händelse == "Fälla":
-        print("Du har hamnat i en fälla!")
+        hjältehp = fälla(hjältehp)
+
         time.sleep(1)
     elif Vald_Händelse == "Monster":
         monsterstyrka= monster()
-        strid(hjältestyrka, monsterstyrka, hjältehp, hjältelv)
+        hjältehp, hjältelv = strid(hjältestyrka, monsterstyrka, hjältehp, hjältelv)
     elif Vald_Händelse == "Kista":
-        Vunnet=Item()
-        inventory.append(Vunnet)
-        time.sleep(2)
+        Vunnet = Item()
+        if len(inventory) == 4:
+            print(
+            f"""
+
+            Du har fullt inventory. Vad gör du?
+            1. Byt ut item
+            2. Släng {Vunnet}
+
+            
+            """)
+            fullinventory=int(input("Välj mellan 1 o 2: "))
+            if fullinventory == 1: 
+                for sak in inventory:
+                    print(sak)
+                x = int(input("Välj vilket föremål du vill ta bort(OBS! Du måste skriva rätt positon på listan) "))
+                x -= 1
+                borttagna=inventory.pop(x)
+                inventory.append(Vunnet)
+                print(f"Du har tagit bort itemet {borttagna} och nu har du dessa items: {inventory}")
+                time.sleep(2)
+            else: 
+                print(f"Du slänger itemet {Vunnet}")
+        else:
+            inventory.append(Vunnet)
+            time.sleep(2)
     
     return hjältehp, inventory, hjältelv
 def main():
     heroname = input("Hej, vad heter du?\n")
     hjältenamn = {heroname}
     hjältehp = 10
-    hjältestyrka = rand.randint(1,4)
+    hjältestyrka = rand.randint(4,7)
     inventory = []
     hjältelv = 1
 
@@ -136,13 +177,18 @@ def main():
                 """)
             itemval = input("")
             if itemval == "1":
-                print(inventory)
+                #iterera genom lista mha for-loop
+                for sak in inventory:
+                    print(sak)
+                
                 time.sleep(2)
             elif itemval == "2":
+                for sak in inventory:
+                    print(sak)
                 x = int(input("Välj vilket föremål du vill ta bort(OBS! Du måste skriva rätt positon på listan) "))
                 x -= 1
-                inventory.pop(x)
-                print(f"Du har tagit bort itemet och nu har du dessa items {inventory}")
+                borttagna=inventory.pop(x)
+                print(f"Du har tagit bort itemet {borttagna} och nu har du dessa items {inventory}")
                 time.sleep(2)
             elif itemval == "3":
                 pass
