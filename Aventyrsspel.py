@@ -63,7 +63,7 @@ def fälla(hp):
     bokstav = rand.choice(bokstäver)
     svartid = (1,2,3)
     tid = rand.choice(svartid)
-    
+    slut = 0
 
 def dörr(x, hjältestyrka, hjältehp, inventory, hjältelv):
     Händelser = ["Fälla", "Monster", "Kista"]
