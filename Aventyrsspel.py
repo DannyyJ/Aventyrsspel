@@ -58,6 +58,13 @@ def strid(hs,fs,hp,xp):
     time.sleep(2)
     return hp, xp
 
+def fälla(hp):
+    bokstäver = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    bokstav = rand.choice(bokstäver)
+    svartid = (1,2,3)
+    tid = rand.choice(svartid)
+    slut = 0
+
 def dörr(x, hjältestyrka, hjältehp, inventory, hjältelv):
     Händelser = ["Fälla", "Monster", "Kista"]
     Vald_Händelse = rand.choice(Händelser)
@@ -145,5 +152,5 @@ def main():
         elif val == "4":
             exit("Du avslutar spelet")
         else:
-            print("Välj 1, 2, 3 eller 4")
+            print("Välj 1, 2, 3 eller 4!")
 main()
