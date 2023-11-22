@@ -1,62 +1,111 @@
 import random as rand
 import time
 
-def Item():
+class Itemm():
+    def __init__(self, name, stre, heal):
+        self.name = name
+        self.stre = stre
+        self.heal = heal
+
+
+
+
+# I1 = Item("Katana", 12)
+# I2 = Item("Kaktus", 1)
+# I3 = Item("asdfgh", 999)
+
+# [I1, I2, I3]
+
+# I1.name
+# I1.stre
+
+
+
+def item():
     procent = rand.randint(1,100)
     if procent == 1:
         print("Du fick en Laserpistol")
-        föremål = "Laserpistol" 
+        föremål = Itemm("Laserpistol", 50)
     elif procent == 2:
         print("Du fick ett lasersvärd")
-        föremål ="Lasersvärd"
+        föremål = Itemm("Lasersvärd", 50)
     elif procent > 2 and procent <=12:
         print("Du fick en slägga")
-        föremål = "Slägga"
+        föremål = Itemm("Slägga", 23)
     elif procent > 12 and procent <=24:
         print("Du fick ett svärd")
-        föremål ="Svärd"
+        föremål = Itemm("Svärd", 20)
     elif procent > 24 and procent <=34:
         print("Du fick en Strids yxa")
-        föremål ="Strids yxa"
+        föremål =Itemm("Strids yxa", 25)
     elif procent > 34 and procent <= 54:
         print("Du fick en dolk")
-        föremål ="Dolk"
+        föremål =Itemm("dolk", 10)
     elif procent > 54 and procent <= 74:
-        print("Du fick 5 bandage")
-        föremål = "Bandage"
+        print("Du fick bandage")
+        föremål = Itemm("Bandage", 0, 2)
     elif procent > 74 and procent <= 89:
         print("Du fick en Hälsedryck")
-        föremål = "Hälsedryck"
+        föremål = Itemm("Hälsedryck", 0, 7)
     elif procent > 89 and procent <= 94:
         print("Du fick en katana")
-        föremål = "Katana"
+        föremål = Itemm("Katana", 35)
     else:
         print("Hopsan, du fick tyvvär inget :(")
         föremål = None
-    return föremål
+        return föremål
 
-class Zombie():
-    def __init__(self, styrka, färg):
+class Monster():
+    def __init__(self, hälsa, styrka, färg, monster_type):
+        self.hälsa = hälsa
         self.styrka = styrka
         self.färg = färg
-        return styrka
+        self.monster_type = monster_type
+
+# class Zombie():
+#     def __init__(self, styrka, färg):
+#         self.styrka = styrka
+#         self.färg = färg
+#         return styrka
 def monster():
-    
+    monsters = []
+    hälsa = rand.randint(2,10)
+    styrka = rand.randint(4,10)
+    färg = rand.choice(["blå", "grön", "gul"])
+    # monster_type = rand.choice(["Zombie", "Skeleton", "Brute"])
+
+    monster_type_chans = rand.randint(1, 100)
+    if monster_type_chans <= 35:
+        monster_type = "Skeleton"
+        styrka += 4
+    elif monster_type_chans <= 20:
+        monster_type = "Brute"
+        styrka += 10
+    else:
+        monster_type = "Zombie"
+        
+    monsters.append(Monster(hälsa, styrka, färg, monster_type))
+    return monsters
     
 
-def strid(hs,fs,hp,xp):
+def strid(hs,monsters,hp,xp):
     print("Du mötte ett monster, hur ska det gå?!")
     time.sleep(2)
-    print(f"Monstrets styrka är {fs} och din styrka är {hs}")
-    if hs > fs:
-        print("Du vann")
-        xp =+ 1
-    elif hs == fs:
-        print("Ni är lika starka så ingen av er förlorar")
-    else:
-        print("Du förlora")
-        hp -= 1
-    time.sleep(2)
+    
+    for monster in monsters:
+        print(f"Du mötte en {monster.monster_type} med styrkan {monster.styrka} och din styrka är {hs}")
+
+    # Här gör vi så att man kan fighta, flee, heala
+        if hs > monster.styrka:
+            print("Du vann")
+            xp += 1
+        elif hs == monster.styrka:
+            print("Ni är lika starka så ingen av er förlorar")
+        else:
+            print("Du förlora")
+            hp -= 1
+        time.sleep(2)
+
     return hp, xp
 
 def fälla(hp):
@@ -92,7 +141,9 @@ def dörr(x, hjältestyrka, hjältehp, inventory, hjältelv):
         monsterstyrka= monster()
         hjältehp, hjältelv = strid(hjältestyrka, monsterstyrka, hjältehp, hjältelv)
     elif Vald_Händelse == "Kista":
-        Vunnet = Item()
+        Vunnet = item()
+        inventory.append(Vunnet)
+    
         if len(inventory) == 4:
             print(
             f"""
@@ -124,17 +175,9 @@ def main():
     heroname = input("Hej, vad heter du?\n")
     hjältenamn = {heroname}
     hjältehp = 10
-    hjältestyrka = rand.randint(4,7)
+    hjältestyrka = rand.randint(4,8)
     inventory = []
     hjältelv = 1
-
-    # for i in range(100):
-    #     hälsa = rand.randint(2,10)
-    #     styrka = rand.randint(4,10)
-    #     färg = rand.choice(["blå", "grön", "gul"])
-
-    #     Ny_zombie = Zombie(styrka, färg)
-    #     print(Ny_zombie.färg)
     
 
     while hjältehp >= 0:        
