@@ -39,8 +39,9 @@ class Zombie():
     def __init__(self, styrka, färg):
         self.styrka = styrka
         self.färg = färg
+        return styrka
 def monster():
-    return 5
+    
     
 
 def strid(hs,fs,hp,xp):
