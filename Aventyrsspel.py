@@ -93,7 +93,7 @@ def strid(hs,monsters,hp,xp):
     time.sleep(2)
     
     for monster in monsters:
-        print(f"Du mötte en {monster.monster_type} med styrkan {monster.styrka} och din styrka är {hs}")
+        print(f"Du mötte en {monster.färg} {monster.monster_type} med styrkan {monster.styrka} och din styrka är {hs}")
 
     # Här gör vi så att man kan fighta, flee, heala
         if hs > monster.styrka:
