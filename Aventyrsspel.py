@@ -25,22 +25,22 @@ def item():
     procent = rand.randint(1,100)
     if procent == 1:
         print("Du fick en Laserpistol")
-        föremål = Itemm("Laserpistol", 50)
+        föremål = Itemm("Laserpistol", 50, 0)
     elif procent == 2:
         print("Du fick ett lasersvärd")
-        föremål = Itemm("Lasersvärd", 50)
+        föremål = Itemm("Lasersvärd", 50, 0)
     elif procent > 2 and procent <=12:
         print("Du fick en slägga")
-        föremål = Itemm("Slägga", 23)
+        föremål = Itemm("Slägga", 23, 0)
     elif procent > 12 and procent <=24:
         print("Du fick ett svärd")
-        föremål = Itemm("Svärd", 20)
+        föremål = Itemm("Svärd", 20, 0)
     elif procent > 24 and procent <=34:
         print("Du fick en Strids yxa")
-        föremål =Itemm("Strids yxa", 25)
+        föremål =Itemm("Strids yxa", 25, 0)
     elif procent > 34 and procent <= 54:
         print("Du fick en dolk")
-        föremål =Itemm("dolk", 10)
+        föremål =Itemm("dolk", 10, 0)
     elif procent > 54 and procent <= 74:
         print("Du fick bandage")
         föremål = Itemm("Bandage", 0, 2)
@@ -49,7 +49,7 @@ def item():
         föremål = Itemm("Hälsedryck", 0, 7)
     elif procent > 89 and procent <= 94:
         print("Du fick en katana")
-        föremål = Itemm("Katana", 35)
+        föremål = Itemm("Katana", 35, 0)
     else:
         print("Hopsan, du fick tyvvär inget :(")
         föremål = None
@@ -176,9 +176,9 @@ def main():
 
     while hjältehp >= 0:        
         print(
-            """
+            f"""
 
-            Vad vill du göra?
+            Vad vill du göra {heroname}?
             1. Välj dörr
             2. Kolla ryggsäck
             3. Kolla stats
