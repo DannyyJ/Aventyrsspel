@@ -62,17 +62,11 @@ class Monster():
         self.färg = färg
         self.monster_type = monster_type
 
-# class Zombie():
-#     def __init__(self, styrka, färg):
-#         self.styrka = styrka
-#         self.färg = färg
-#         return styrka
 def monster():
     monsters = []
     hälsa = rand.randint(2,10)
     styrka = rand.randint(4,10)
     färg = rand.choice(["blå", "grön", "gul"])
-    # monster_type = rand.choice(["Zombie", "Skeleton", "Brute"])
 
     monster_type_chans = rand.randint(1, 100)
     if monster_type_chans <= 35:
