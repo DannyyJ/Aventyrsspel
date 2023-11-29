@@ -6,19 +6,7 @@ class Itemm():
         self.name = name
         self.stre = stre
         self.heal = heal
-
-
-
-
-# I1 = Item("Katana", 12)
-# I2 = Item("Kaktus", 1)
-# I3 = Item("asdfgh", 999)
-
-# [I1, I2, I3]
-
-# I1.name
-# I1.stre
-
+        self.equipped = False
 
 
 def item():
@@ -78,18 +66,28 @@ def monster():
     else:
         monster_type = "Zombie"
         
-    monsters.append(Monster(hälsa, styrka, färg, monster_type))
-    return monsters
+    return Monster(hälsa, styrka, färg, monster_type)
     
 
 def strid(hs,monsters,hp,xp):
+
     print("Du mötte ett monster, hur ska det gå?!")
     time.sleep(2)
     
-    for monster in monsters:
-        print(f"Du mötte en {monster.färg} {monster.monster_type} med styrkan {monster.styrka} och din styrka är {hs}")
+    print(
+        f"""
+        
+        Du mötte en {monster.färg} {monster.monster_type} med styrkan {monster.styrka} och din styrka är {hs}
 
-    # Här gör vi så att man kan fighta, flee, heala
+        """)
+    time.sleep(2)
+
+    print("1. FIGHT")
+    print("2. FLY")
+
+    stridval = input("")
+
+    if stridval == "1":
         if hs > monster.styrka:
             print("Du vann")
             xp += 1
@@ -100,7 +98,14 @@ def strid(hs,monsters,hp,xp):
             hp -= 1
         time.sleep(2)
 
-    return hp, xp
+    elif stridval == "2":
+    # FLY
+        print("Du flydde från striden.")
+    else:
+        print("Välj 1 eller 2")
+
+    if hp <= 0 or stridval == 2:
+        return hp, xp
 
 def fälla(hp):
     bokstäver = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -111,9 +116,8 @@ def fälla(hp):
     svar = input()
     if svar.lower() == bokstav.lower():
         slut = time.time()
-        print(slut-start)
         if slut - start < 3:
-            print("DU KLARADE DET")
+            print(f"DU KLARADE DET PÅ: {slut-start}")
             time.sleep(2)
         else:
             print("Hopsan, Du hann inte och förlorade 1 hp")
@@ -132,8 +136,11 @@ def dörr(x, hjältestyrka, hjältehp, inventory, hjältelv):
 
         time.sleep(1)
     elif Vald_Händelse == "Monster":
-        monsterstyrka= monster()
-        hjältehp, hjältelv = strid(hjältestyrka, monsterstyrka, hjältehp, hjältelv)
+
+        valt_monster= monster()
+        
+
+        hjältehp, hjältelv = strid(hjältestyrka, valt_monster, hjältehp, hjältelv)
     elif Vald_Händelse == "Kista":
         Vunnet = item()
         inventory.append(Vunnet)
@@ -170,7 +177,7 @@ def main():
     hjältenamn = {heroname}
     hjältehp = 10
     hjältestyrka = rand.randint(4,8)
-    inventory = []
+    inventory = [Itemm("glass", 3, 3), Itemm("Kaktus", 5,0)]
     hjältelv = 1
     
 
@@ -207,8 +214,9 @@ def main():
                 """
                 Du öppnade din ryggsäck.
                 1. Visa föremål
-                2. Släng bort item
-                3. Stäng ryggsäck
+                2. Equipa vapen
+                3. Släng bort item
+                4. Stäng ryggsäck
                 """)
             itemval = input("")
             if itemval == "1":
@@ -218,6 +226,10 @@ def main():
                 
                 time.sleep(2)
             elif itemval == "2":
+                val = input("vilket vapen vill du använda?")
+                valt_vapen = inventory[val]
+                hjältestyrka += valt_vapen.stre 
+            elif itemval == "3":
                 for sak in inventory:
                     print(sak)
                 x = int(input("Välj vilket föremål du vill ta bort(OBS! Du måste skriva rätt positon på listan) "))
@@ -225,7 +237,7 @@ def main():
                 borttagna=inventory.pop(x)
                 print(f"Du har tagit bort itemet {borttagna} och nu har du dessa items {inventory}")
                 time.sleep(2)
-            elif itemval == "3":
+            elif itemval == "4":
                 pass
         elif val == "3":
             print(f"Ditt hp är {hjältehp} \nDin styrka är {hjältestyrka}\nDin level är {hjältelv}")
