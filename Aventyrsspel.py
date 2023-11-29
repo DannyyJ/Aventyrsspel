@@ -9,6 +9,15 @@ class Itemm():
         self.equipped = False
 
 
+#Art:
+sword_art = """ """
+f = open("sword.txt", "r")
+for rad in f.readlines():
+    sword_art += rad
+
+# print(sword_art)
+
+
 def item():
     procent = rand.randint(1,100)
     if procent == 1:
@@ -51,12 +60,12 @@ class Monster():
         self.monster_type = monster_type
 
 def monster():
-    monsters = []
+
     hälsa = rand.randint(2,10)
     styrka = rand.randint(4,10)
     färg = rand.choice(["blå", "grön", "gul"])
-
     monster_type_chans = rand.randint(1, 100)
+
     if monster_type_chans <= 35:
         monster_type = "Skeleton"
         styrka += 4
@@ -69,7 +78,7 @@ def monster():
     return Monster(hälsa, styrka, färg, monster_type)
     
 
-def strid(hs,monsters,hp,xp):
+def strid(hs,monster,hp,xp):
 
     print("Du mötte ett monster, hur ska det gå?!")
     time.sleep(2)
@@ -85,31 +94,53 @@ def strid(hs,monsters,hp,xp):
     print("1. FIGHT")
     print("2. FLY")
 
-    stridval = input("")
 
-    if stridval == "1":
-        if hs > monster.styrka:
-            print("Du vann")
-            xp += 1
-        elif hs == monster.styrka:
-            print("Ni är lika starka så ingen av er förlorar")
+
+    strid_pågår = True
+
+    while strid_pågår:
+        stridval = input("")
+        
+        if stridval == "1":
+            if hs > monster.styrka:
+                print("Du vann")
+                xp += 1
+                break
+            elif hs == monster.styrka:
+                print("Ni är lika starka så ingen av er förlorar")
+                break
+            else:
+                print("Du förlora")
+                hp -= 1
+                break
+
+        elif stridval == "2":
+        # FLY
+            print("Du flydde från striden.")
+            break
         else:
-            print("Du förlora")
-            hp -= 1
-        time.sleep(2)
-
-    elif stridval == "2":
-    # FLY
-        print("Du flydde från striden.")
-    else:
-        print("Välj 1 eller 2")
-
-    if hp <= 0 or stridval == 2:
-        return hp, xp
-
+            print("Välj 1 eller 2")
+        
+    time.sleep(2)
+    return hp, xp
+    
+    
 def fälla(hp):
     bokstäver = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     bokstav = rand.choice(bokstäver)
+    print(""" 
+          
+⠀⠀⢠⠀⠀⣾⡆⠀⠀⣠⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡀⠀⠀⠀⡄⠀⠀⠀⠀
+⠀⠀⣾⣆⣼⣿⣧⣤⣴⣿⣇⠀⢀⣾⠀⠀⢀⣆⠀⠀⣸⣧⠀⠀⢰⣷⠀⠀⡀⠀
+⠀⣸⡟⠋⠉⠉⠉⠙⠛⠻⠿⣿⣿⠟⢀⡀⠘⣿⣶⣶⣿⣿⣶⣶⣾⣿⣤⣼⡇⠀
+⠀⣿⠁⠀⣼⠀⠀⠀⠀⠀⠀⠀⠈⠀⠛⠛⠀⠛⠉⠉⠉⠉⠉⠉⠉⠉⠛⢿⣇⠀
+⠀⢻⣧⣴⣿⠀⠀⠀⣰⠀⠀⠀⢶⣶⣶⣶⣶⣤⠀⠀⠀⠀⠀⠀⢀⣇⠀⢸⣿⠀
+⠀⠈⠻⣿⣿⣤⣀⣼⣿⠀⠀⠀⡀⠉⣉⠉⠉⠁⠀⠀⢠⣇⠀⠀⢸⣿⣤⣼⠇⠀
+⠀⠀⠀⠀⠙⠻⢿⣿⣿⣤⣀⣾⡇⠀⠻⠀⢠⣧⠀⠀⣼⣿⣤⣴⣿⣿⠿⠋⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠈⠙⠛⠿⠟⠀⣶⣶⡄⢸⣿⣿⣿⡿⠿⠟⠛⠉⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠋⠀⠈⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+
+""")
     print("DU HAMNA I EN FÄLLA!")
     print(f"TRYCK: {bokstav}")
     start = time.time()
@@ -196,6 +227,21 @@ def main():
         val = input("")
         if val == "1":                
             dörrval = " "
+            print(""" 
+            __________      __________      __________   
+           |  __  __  |    |  __  __  |    |  __  __  |
+           | |  ||  | |    | |  ||  | |    | |  ||  | |
+           | |  ||  | |    | |  ||  | |    | |  ||  | |
+           | |__||__| |    | |__||__| |    | |__||__| |
+           |  __  __()|    |  __  __()|    |  __  __()|
+           | |  ||  | |    | |  ||  | |    | |  ||  | |
+           | |  ||  | |    | |  ||  | |    | |  ||  | |
+           | |  ||  | |    | |  ||  | |    | |  ||  | |
+           | |  ||  | |    | |  ||  | |    | |  ||  | |
+           | |__||__| |    | |__||__| |    | |__||__| |     
+           |__________|    |__________|    |__________|  
+                  
+                      """)
             while dörrval not in "123":
                 print("Du ser 3 olika dörrar. Välj dörr 1, 2 eller 3")
                 dörrval = input("")
