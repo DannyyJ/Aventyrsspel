@@ -15,7 +15,12 @@ f = open("sword.txt", "r")
 for rad in f.readlines():
     sword_art += rad
 
-# print(sword_art)
+laserpistol_art = """ """
+f = open("laserpistol.txt", "r")
+for rad in f.readlines():
+    laserpistol_art += rad
+
+print(laserpistol_art)
 
 
 def item():
