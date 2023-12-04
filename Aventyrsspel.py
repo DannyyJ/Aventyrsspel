@@ -9,18 +9,20 @@ class Itemm():
         self.equipped = False
 
 
-#Art:
+# Art:
 sword_art = """ """
+
 f = open("sword.txt", "r")
+
 for rad in f.readlines():
     sword_art += rad
 
-laserpistol_art = """ """
-f = open("laserpistol.txt", "r")
-for rad in f.readlines():
-    laserpistol_art += rad
+# laserpistol_art = """ """
+# f = open("laserpistol.txt", "r")
+# for rad in f.readlines():
+#     laserpistol_art += rad
 
-print(laserpistol_art)
+# print(sword_art)
 
 
 def item():
@@ -152,7 +154,7 @@ def fälla(hp):
     svar = input()
     if svar.lower() == bokstav.lower():
         slut = time.time()
-        if slut - start < 3:
+        if slut - start < 2:
             print(f"DU KLARADE DET PÅ: {slut-start}")
             time.sleep(2)
         else:
@@ -194,7 +196,7 @@ def dörr(x, hjältestyrka, hjältehp, inventory, hjältelv):
             fullinventory=int(input("Välj mellan 1 o 2: "))
             if fullinventory == 1: 
                 for sak in inventory:
-                    print(sak)
+                    print(sak.namn)
                 x = int(input("Välj vilket föremål du vill ta bort(OBS! Du måste skriva rätt positon på listan) "))
                 x -= 1
                 borttagna=inventory.pop(x)
@@ -215,6 +217,7 @@ def main():
     hjältestyrka = rand.randint(4,8)
     inventory = [Itemm("glass", 3, 3), Itemm("Kaktus", 5,0)]
     hjältelv = 1
+    valt_vapen = ""
     
 
     while hjältehp >= 0:        
@@ -273,13 +276,26 @@ def main():
             if itemval == "1":
                 #iterera genom lista mha for-loop
                 for sak in inventory:
-                    print(sak)
+                    print(sak.name)
                 
                 time.sleep(2)
             elif itemval == "2":
-                val = input("vilket vapen vill du använda?")
+                for sak in inventory:
+                    if sak.equipped == True:
+                        sak.equipped = False
+                        hjältestyrka -= sak.stre
+                valt_vapen == ""
+                
+                for sak in inventory:
+                    print(sak.name)
+                
+                val = int(input("vilket vapen vill du använda?"))
+                val -= 1
                 valt_vapen = inventory[val]
-                hjältestyrka += valt_vapen.stre 
+                hjältestyrka += valt_vapen.stre
+                valt_vapen.equipped = True
+
+
             elif itemval == "3":
                 for sak in inventory:
                     print(sak)
