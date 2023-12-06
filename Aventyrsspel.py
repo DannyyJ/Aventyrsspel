@@ -9,52 +9,111 @@ class Itemm():
         self.equipped = False
 
 
-# Art:
-sword_art = """ """
-
-f = open("sword.txt", "r")
-
+# # Art:
+svärd_art = """ """
+f = open("svärd.txt", "r")
 for rad in f.readlines():
-    sword_art += rad
+    svärd_art += rad
 
-# laserpistol_art = """ """
-# f = open("laserpistol.txt", "r")
-# for rad in f.readlines():
-#     laserpistol_art += rad
+laserpistol_art = """ """
+f = open("laserpistol.txt", "r")
+for rad in f.readlines():
+    laserpistol_art += rad
 
-# print(sword_art)
+lasersvärd_art = """ """
+f = open("lasersvärd.txt", "r")
+for rad in f.readlines():
+    lasersvärd_art += rad
+
+slägga_art = """ """
+f = open("slägga.txt", "r")
+for rad in f.readlines():
+    slägga_art += rad
+
+stridsyxa_art = """ """
+f = open("stridsyxa.txt", "r")
+for rad in f.readlines():
+    stridsyxa_art += rad
+
+dolk_art = """ """
+f = open("dolk.txt", "r")
+for rad in f.readlines():
+    dolk_art += rad
+
+bandage_art = """ """
+f = open("bandage.txt", "r")
+for rad in f.readlines():
+    bandage_art += rad
+
+hälsedryck_art = """ """
+f = open("hälsedryck.txt", "r")
+for rad in f.readlines():
+    hälsedryck_art += rad
+
+katana_art = """ """
+f = open("katana.txt", "r")
+for rad in f.readlines():
+    katana_art += rad
+
+# print(laserpistol_art)
 
 
 def item():
     procent = rand.randint(1,100)
     if procent == 1:
+        print(laserpistol_art)
         print("Du fick en Laserpistol")
         föremål = Itemm("Laserpistol", 50, 0)
     elif procent == 2:
+        print(lasersvärd_art)
         print("Du fick ett lasersvärd")
         föremål = Itemm("Lasersvärd", 50, 0)
     elif procent > 2 and procent <=12:
+        print(slägga_art)
         print("Du fick en slägga")
         föremål = Itemm("Slägga", 23, 0)
     elif procent > 12 and procent <=24:
+        print(svärd_art)
         print("Du fick ett svärd")
         föremål = Itemm("Svärd", 20, 0)
     elif procent > 24 and procent <=34:
+        print(stridsyxa_art)
         print("Du fick en Strids yxa")
         föremål =Itemm("Strids yxa", 25, 0)
     elif procent > 34 and procent <= 54:
+        print(dolk_art)
         print("Du fick en dolk")
         föremål =Itemm("dolk", 10, 0)
     elif procent > 54 and procent <= 74:
+        print(bandage_art)
         print("Du fick bandage")
         föremål = Itemm("Bandage", 0, 2)
     elif procent > 74 and procent <= 89:
+        print(hälsedryck_art)
         print("Du fick en Hälsedryck")
         föremål = Itemm("Hälsedryck", 0, 7)
     elif procent > 89 and procent <= 94:
+        print(katana_art)
         print("Du fick en katana")
         föremål = Itemm("Katana", 35, 0)
     else:
+        print("""
+⠀⠀⠀⠀⠀⠀⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠰⠿⠿⠿⢿⣿⣷⣶⣶⣶⣦⣤⣤⣤⣤⣀⣀⣀⣀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⢰⣶⣦⠀⣶⣤⣤⣤⣤⣍⣉⣉⣉⡙⠛⠛⠛⠛⠏⣰⣿⡆⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⢿⡿⢠⣿⣿⣿⣿⣿⣿⣿⣿⠻⣿⣿⣿⣿⣿⣆⠸⣿⡇⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠘⡇⢸⣿⣿⣿⣿⣿⣿⣿⡏⠀⠹⠟⠙⣿⣿⣿⠄⢻⡇⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠊⣉⡉⢋⣩⡉⠻⠛⠁⣾⣀⣴⡀⢛⡉⢠⣷⠈⠇⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⣠⣼⣿⣿⣿⣿⣿⣷⣿⠀⢿⣿⣿⣿⡿⢁⠚⠛⠃⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠤⠾⠿⣿⡿⠛⣿⣿⣿⣿⣿⣷⣦⣌⣉⣉⣠⣾⡷⠂⣠⠀⠀⠀⠀
+⠀⠀⠀⣿⢰⣶⣶⣶⣦⠀⠀⣤⣌⣉⠉⣉⡙⠛⠛⠛⠻⠟⢁⣴⣾⣿⠀⠀⠀⠀
+⠀⠀⠀⣿⣆⠻⣿⣿⢇⣸⠀⣯⢉⣿⠀⣿⣿⣿⣿⣿⣷⠀⣿⣿⣿⣿⠀⠀⠀⠀
+⠀⠀⠀⣿⣿⣷⡔⠐⣾⣿⠀⠛⠚⠿⠀⣿⣿⣿⣿⣿⣿⠀⣿⣿⣿⣿⠀⠀⠀⠀
+⠀⠀⠀⣿⣿⣿⣿⣶⣿⣿⣿⣿⣿⣶⣶⣿⣿⣿⣿⣿⣿⠀⣿⣿⣿⣿⠀⠀⠀⠀
+⠀⠀⠀⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⣿⣿⠿⠋⠀⠀⠀⠀
+⠀⠀⠰⣦⡄⠀⠀⠈⠉⠉⠉⠉⠛⠛⠛⠛⠻⠿⠿⠿⠿⠀⠛⢁⣀⡀⠲⠖⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠀⠀⠀⠀⠀
+ """)
         print("Hopsan, du fick tyvvär inget :(")
         föremål = None
         return föremål
@@ -183,7 +242,7 @@ def dörr(x, hjältestyrka, hjältehp, inventory, hjältelv):
         Vunnet = item()
         inventory.append(Vunnet)
     
-        if len(inventory) == 4:
+        if len(inventory) == 16:
             print(
             f"""
 
@@ -215,7 +274,7 @@ def main():
     hjältenamn = {heroname}
     hjältehp = 10
     hjältestyrka = rand.randint(4,8)
-    inventory = [Itemm("glass", 3, 3), Itemm("Kaktus", 5,0)]
+    inventory = [Itemm("glass", 3, 3)]
     hjältelv = 1
     valt_vapen = ""
     
@@ -261,7 +320,6 @@ def main():
                     hjältehp, inventory, hjältelv = dörr(3, hjältestyrka, hjältehp,inventory, hjältelv)
                 else:
                     print(f"dörr {dörrval} finns inte. Välj dörr 1, 2 eller 3!")
-
         elif val == "2":
             #Lägg till att se inventory
             print(
@@ -269,8 +327,9 @@ def main():
                 Du öppnade din ryggsäck.
                 1. Visa föremål
                 2. Equipa vapen
-                3. Släng bort item
-                4. Stäng ryggsäck
+                3. Heala dig
+                4. Släng bort item
+                5. Stäng ryggsäck
                 """)
             itemval = input("")
             if itemval == "1":
@@ -294,9 +353,13 @@ def main():
                 valt_vapen = inventory[val]
                 hjältestyrka += valt_vapen.stre
                 valt_vapen.equipped = True
-
-
             elif itemval == "3":
+                for sak in inventory:
+                    if sak.heal <= 1:
+                        print(sak)
+                    heal_val = int(input("Vilken healing föremål vill du använda"))
+
+            elif itemval == "4":
                 for sak in inventory:
                     print(sak)
                 x = int(input("Välj vilket föremål du vill ta bort(OBS! Du måste skriva rätt positon på listan) "))
@@ -304,7 +367,7 @@ def main():
                 borttagna=inventory.pop(x)
                 print(f"Du har tagit bort itemet {borttagna} och nu har du dessa items {inventory}")
                 time.sleep(2)
-            elif itemval == "4":
+            elif itemval == "5":
                 pass
         elif val == "3":
             print(f"Ditt hp är {hjältehp} \nDin styrka är {hjältestyrka}\nDin level är {hjältelv}")
