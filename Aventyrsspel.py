@@ -9,49 +9,49 @@ class Itemm():
         self.equipped = False
 
 
-# # Art:
+# Art:
 svärd_art = """ """
-f = open("svärd.txt", "r")
+f = open("C:/Users/Elev/Desktop/Programmering Mapp/Aventyrsspel/svärd.txt", "r")
 for rad in f.readlines():
     svärd_art += rad
 
 laserpistol_art = """ """
-f = open("laserpistol.txt", "r")
+f = open("C:/Users/Elev/Desktop/Programmering Mapp/Aventyrsspel/laserpistol.txt", "r")
 for rad in f.readlines():
     laserpistol_art += rad
 
 lasersvärd_art = """ """
-f = open("lasersvärd.txt", "r")
+f = open("C:/Users/Elev/Desktop/Programmering Mapp/Aventyrsspel/lasersvärd.txt", "r")
 for rad in f.readlines():
     lasersvärd_art += rad
 
 slägga_art = """ """
-f = open("slägga.txt", "r")
+f = open("C:/Users/Elev/Desktop/Programmering Mapp/Aventyrsspel/slägga.txt", "r")
 for rad in f.readlines():
     slägga_art += rad
 
 stridsyxa_art = """ """
-f = open("stridsyxa.txt", "r")
+f = open("C:/Users/Elev/Desktop/Programmering Mapp/Aventyrsspel/stridsyxa.txt", "r")
 for rad in f.readlines():
     stridsyxa_art += rad
 
 dolk_art = """ """
-f = open("dolk.txt", "r")
+f = open("C:/Users/Elev/Desktop/Programmering Mapp/Aventyrsspel/dolk.txt", "r")
 for rad in f.readlines():
     dolk_art += rad
 
 bandage_art = """ """
-f = open("bandage.txt", "r")
+f = open("C:/Users/Elev/Desktop/Programmering Mapp/Aventyrsspel/bandage.txt", "r")
 for rad in f.readlines():
     bandage_art += rad
 
 hälsedryck_art = """ """
-f = open("hälsedryck.txt", "r")
+f = open("C:/Users/Elev/Desktop/Programmering Mapp/Aventyrsspel/hälsedryck.txt", "r")
 for rad in f.readlines():
     hälsedryck_art += rad
 
 katana_art = """ """
-f = open("katana.txt", "r")
+f = open("C:/Users/Elev/Desktop/Programmering Mapp/Aventyrsspel/katana.txt", "r")
 for rad in f.readlines():
     katana_art += rad
 
