@@ -116,7 +116,8 @@ def item():
  """)
         print("Hopsan, du fick tyvvär inget :(")
         föremål = None
-        return föremål
+    
+    return föremål
 
 class Monster():
     def __init__(self, hälsa, styrka, färg, monster_type):
