@@ -242,11 +242,18 @@ def dörr(x, hjältestyrka, hjälte):
 
         valt_monster= monster()
         
+<<<<<<< HEAD
 
         hjälte.health, hjälte.level = strid(hjältestyrka, valt_monster, hjälte.health, hjälte.level)
     elif Vald_Händelse == "Kista":
         Vunnet = item()
     
+=======
+    
+        hjälte.health, hjälte.level = strid(hjältestyrka, valt_monster, hjälte.health, hjälte.level)
+    elif Vald_Händelse == "Kista":
+        Vunnet = item()
+>>>>>>> 6f3fda8d8c07cf0512ebd94191ea6c50a7a12692
         if len(hjälte.inventory) == 4:
             print(
             f"""
@@ -273,12 +280,19 @@ def dörr(x, hjältestyrka, hjälte):
             hjälte.inventory.append(Vunnet)
             time.sleep(2)
     
+<<<<<<< HEAD
     return hjälte.inventory, hjälte.level
+=======
+    return hjälte.health, hjälte.inventory, hjälte.level
+>>>>>>> 6f3fda8d8c07cf0512ebd94191ea6c50a7a12692
 def main():
     heroname = input("Hej, vad heter du?\n")
     hjälte = Hjälte(heroname, 10, rand.randint(4, 8), [], 1)
     hjältestyrka = hjälte.strength
+<<<<<<< HEAD
     inventory = hjälte.inventory
+=======
+>>>>>>> 6f3fda8d8c07cf0512ebd94191ea6c50a7a12692
     valt_vapen = ""
     
 
