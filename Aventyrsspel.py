@@ -242,18 +242,10 @@ def dörr(x, hjältestyrka, hjälte):
 
         valt_monster= monster()
         
-<<<<<<< HEAD
-
-        hjälte.health, hjälte.level = strid(hjältestyrka, valt_monster, hjälte.health, hjälte.level)
-    elif Vald_Händelse == "Kista":
-        Vunnet = item()
-    
-=======
     
         hjälte.health, hjälte.level = strid(hjältestyrka, valt_monster, hjälte.health, hjälte.level)
     elif Vald_Händelse == "Kista":
         Vunnet = item()
->>>>>>> 6f3fda8d8c07cf0512ebd94191ea6c50a7a12692
         if len(hjälte.inventory) == 4:
             print(
             f"""
@@ -280,23 +272,15 @@ def dörr(x, hjältestyrka, hjälte):
             hjälte.inventory.append(Vunnet)
             time.sleep(2)
     
-<<<<<<< HEAD
-    return hjälte.inventory, hjälte.level
-=======
     return hjälte.health, hjälte.inventory, hjälte.level
->>>>>>> 6f3fda8d8c07cf0512ebd94191ea6c50a7a12692
 def main():
     heroname = input("Hej, vad heter du?\n")
     hjälte = Hjälte(heroname, 10, rand.randint(4, 8), [], 1)
     hjältestyrka = hjälte.strength
-<<<<<<< HEAD
-    inventory = hjälte.inventory
-=======
->>>>>>> 6f3fda8d8c07cf0512ebd94191ea6c50a7a12692
     valt_vapen = ""
     
 
-    while hjälte.health >= 0:        
+    while hjälte.health >= 0:
         print(
             f"""
 
@@ -313,19 +297,19 @@ def main():
             dörrval = " "
             print(""" 
             __________      __________      __________   
-           |  __  __  |    |  __  __  |    |  __  __  |
-           | |  ||  | |    | |  ||  | |    | |  ||  | |
-           | |  ||  | |    | |  ||  | |    | |  ||  | |
-           | |__||__| |    | |__||__| |    | |__||__| |
-           |  __  __()|    |  __  __()|    |  __  __()|
-           | |  ||  | |    | |  ||  | |    | |  ||  | |
-           | |  ||  | |    | |  ||  | |    | |  ||  | |
-           | |  ||  | |    | |  ||  | |    | |  ||  | |
-           | |  ||  | |    | |  ||  | |    | |  ||  | |
-           | |__||__| |    | |__||__| |    | |__||__| |     
-           |__________|    |__________|    |__________|  
-                  
-                      """)
+        |  __  __  |    |  __  __  |    |  __  __  |
+        | |  ||  | |    | |  ||  | |    | |  ||  | |
+        | |  ||  | |    | |  ||  | |    | |  ||  | |
+        | |__||__| |    | |__||__| |    | |__||__| |
+        |  __  __()|    |  __  __()|    |  __  __()|
+        | |  ||  | |    | |  ||  | |    | |  ||  | |
+        | |  ||  | |    | |  ||  | |    | |  ||  | |
+        | |  ||  | |    | |  ||  | |    | |  ||  | |
+        | |  ||  | |    | |  ||  | |    | |  ||  | |
+        | |__||__| |    | |__||__| |    | |__||__| |     
+        |__________|    |__________|    |__________|  
+                
+                    """)
             while dörrval not in "123":
                 print("Du ser 3 olika dörrar. Välj dörr 1, 2 eller 3")
                 dörrval = input("")
@@ -353,7 +337,7 @@ def main():
                 if len(hjälte.inventory) >= 1:
                     #iterera genom lista mha for-loop
                     for sak in hjälte.inventory:
-                        print(sak.name)
+                        print(f"{sak.name} och styrkan är {sak.stre}")
                     time.sleep(2)
                 else:
                     print("Du har inget än")
@@ -368,7 +352,7 @@ def main():
                         valt_vapen = ""
                         n = 1
                         for sak in hjälte.inventory:
-                            print(f"{n}. {sak.name}")
+                            print(f"{n}. {sak.name} strenght är {sak.stre}")
                             n += 1
                         
                         val = int(input("vilket vapen vill du använda?"))
@@ -385,7 +369,7 @@ def main():
                     if len(hjälte.inventory) >= 1:
                         n = 1
                         for sak in hjälte.inventory:
-                            print(f"{n}. {sak.name}")
+                            print(f"{n}. {sak.name} och den healar {sak.heal}")
                             n += 1
                         val = int(input("Vilket väljer du?"))
                         val -= 1
@@ -425,4 +409,11 @@ def main():
             exit("Du avslutar spelet")
         else:
             print("Välj 1, 2, 3 eller 4!")
+
+        if hjälte.level >= 10:
+            print("Grattis! Du har vunnit spelet!")
+            exit()
+        if hjälte.health == 0:
+            print("Hopsan, du dog, det va ju synd")
+            print("1. Vill du köra igen? \nVill du avsluta?")
 main()
