@@ -119,8 +119,12 @@ def item():
 ⠀⠀⠰⣦⡄⠀⠀⠈⠉⠉⠉⠉⠛⠛⠛⠛⠻⠿⠿⠿⠿⠀⠛⢁⣀⡀⠲⠖⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠀⠀⠀⠀⠀
  """)
-        print("Hopsan, du fick tyvvär inget :(")
-        föremål = None
+        print("""Hopsan, du fick tyvvär inget :( 
+              
+              Men du plockade med dig en värdelös planka
+        
+              """)
+        föremål = Itemm("planka", 0, 0)
     
     return föremål
 
@@ -202,8 +206,8 @@ def fälla(hp):
     bokstav = rand.choice(bokstäver)
     print(""" 
           
-⠀⠀⢠⠀⠀⣾⡆⠀⠀⣠⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡀⠀⠀⠀⡄⠀⠀⠀⠀
-⠀⠀⣾⣆⣼⣿⣧⣤⣴⣿⣇⠀⢀⣾⠀⠀⢀⣆⠀⠀⣸⣧⠀⠀⢰⣷⠀⠀⡀⠀
+⠀⠀⢠⠀⠀⣾⡆⠀⠀⣠⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀ ⢀⡀⠀⠀⠀⡄⠀⠀⠀⠀
+⠀⠀⣾⣆⣼⣿⣧⣤⣴⣿⣇⠀⢀⣾⠀⠀ ⢀⣆⠀⠀⣸⣧⠀⠀⢰⣷⠀⠀⡀⠀
 ⠀⣸⡟⠋⠉⠉⠉⠙⠛⠻⠿⣿⣿⠟⢀⡀⠘⣿⣶⣶⣿⣿⣶⣶⣾⣿⣤⣼⡇⠀
 ⠀⣿⠁⠀⣼⠀⠀⠀⠀⠀⠀⠀⠈⠀⠛⠛⠀⠛⠉⠉⠉⠉⠉⠉⠉⠉⠛⢿⣇⠀
 ⠀⢻⣧⣴⣿⠀⠀⠀⣰⠀⠀⠀⢶⣶⣶⣶⣶⣤⠀⠀⠀⠀⠀⠀⢀⣇⠀⢸⣿⠀
@@ -250,24 +254,26 @@ def dörr(x, hjältestyrka, hjälte):
             print(
             f"""
 
-            Du har fullt hjälte.inventory. Vad gör du?
+            Du har fullt inventory. Vad gör du?
             1. Byt ut item
             2. Släng {Vunnet.name}
 
             
             """)
-            hjälte.inventory=int(input("Välj mellan 1 o 2: "))
-            if hjälte.inventory == 1: 
-                for sak in hjälte.inventory:
-                    print(sak.namn)
-                x = int(input("Välj vilket föremål du vill ta bort(OBS! Du måste skriva rätt positon på listan: 1, 2, 3...) "))
+            val = int(input("Välj mellan 1 o 2: "))
+            if val == 1:
+                print("Dina items:")
+                # enumerate räknar inventory och gör så att det printas ut som alternativ att välja mellan
+                for i, sak in enumerate(hjälte.inventory, 1):
+                    print(f"{i}. {sak.name}")
+                x = int(input("Välj vilket föremål du vill ta bort (OBS! Du måste skriva rätt position på listan): "))
                 x -= 1
-                borttagna=hjälte.inventory.pop(x)
+                borttagna = hjälte.inventory.pop(x)
                 hjälte.inventory.append(Vunnet)
-                print(f"Du har tagit bort itemet {borttagna} och nu har du dessa items: {hjälte.inventory}")
+                print(f"Du har bytit ut ett item för itemet {borttagna.name}")
                 time.sleep(2)
-            else: 
-                print(f"Du slänger itemet {Vunnet}")
+            elif val == 2:
+                print(f"Du slänger itemet {Vunnet.name}")
         else:
             hjälte.inventory.append(Vunnet)
             time.sleep(2)
@@ -280,7 +286,7 @@ def main():
     valt_vapen = ""
     
 
-    while hjälte.health >= 0:        
+    while hjälte.health >= 0:
         print(
             f"""
 
@@ -296,20 +302,20 @@ def main():
         if val == "1":                
             dörrval = " "
             print(""" 
-            __________      __________      __________   
-           |  __  __  |    |  __  __  |    |  __  __  |
-           | |  ||  | |    | |  ||  | |    | |  ||  | |
-           | |  ||  | |    | |  ||  | |    | |  ||  | |
-           | |__||__| |    | |__||__| |    | |__||__| |
-           |  __  __()|    |  __  __()|    |  __  __()|
-           | |  ||  | |    | |  ||  | |    | |  ||  | |
-           | |  ||  | |    | |  ||  | |    | |  ||  | |
-           | |  ||  | |    | |  ||  | |    | |  ||  | |
-           | |  ||  | |    | |  ||  | |    | |  ||  | |
-           | |__||__| |    | |__||__| |    | |__||__| |     
-           |__________|    |__________|    |__________|  
-                  
-                      """)
+         __________      __________      __________   
+        |  __  __  |    |  __  __  |    |  __  __  |
+        | |  ||  | |    | |  ||  | |    | |  ||  | |
+        | |  ||  | |    | |  ||  | |    | |  ||  | |
+        | |__||__| |    | |__||__| |    | |__||__| |
+        |  __  __()|    |  __  __()|    |  __  __()|
+        | |  ||  | |    | |  ||  | |    | |  ||  | |
+        | |  ||  | |    | |  ||  | |    | |  ||  | |
+        | |  ||  | |    | |  ||  | |    | |  ||  | |
+        | |  ||  | |    | |  ||  | |    | |  ||  | |
+        | |__||__| |    | |__||__| |    | |__||__| |     
+        |__________|    |__________|    |__________|  
+                
+                    """)
             while dörrval not in "123":
                 print("Du ser 3 olika dörrar. Välj dörr 1, 2 eller 3")
                 dörrval = input("")
@@ -337,7 +343,7 @@ def main():
                 if len(hjälte.inventory) >= 1:
                     #iterera genom lista mha for-loop
                     for sak in hjälte.inventory:
-                        print(sak.name)
+                        print(f"{sak.name} och styrkan är {sak.stre}")
                     time.sleep(2)
                 else:
                     print("Du har inget än")
@@ -352,7 +358,7 @@ def main():
                         valt_vapen = ""
                         n = 1
                         for sak in hjälte.inventory:
-                            print(f"{n}. {sak.name}")
+                            print(f"{n}. {sak.name} strenght är {sak.stre}")
                             n += 1
                         
                         val = int(input("vilket vapen vill du använda?"))
@@ -369,7 +375,7 @@ def main():
                     if len(hjälte.inventory) >= 1:
                         n = 1
                         for sak in hjälte.inventory:
-                            print(f"{n}. {sak.name}")
+                            print(f"{n}. {sak.name} och den healar {sak.heal}")
                             n += 1
                         val = int(input("Vilket väljer du?"))
                         val -= 1
@@ -394,7 +400,7 @@ def main():
                         x = int(input("Välj vilket föremål du vill ta bort(OBS! Du måste skriva rätt positon på listan) "))
                         x -= 1
                         borttagna=hjälte.inventory.pop(x)
-                        print(f"Du har tagit bort itemet {borttagna} och nu har du dessa items {hjälte.inventory}")
+                        print(f"Du har tagit bort itemet {borttagna.name}")
                         time.sleep(2)
                     except:
                         print("Välj ett giltigt val")
@@ -409,4 +415,12 @@ def main():
             exit("Du avslutar spelet")
         else:
             print("Välj 1, 2, 3 eller 4!")
+
+        if hjälte.level >= 10:
+            print("Grattis! Du har vunnit spelet!")
+            exit()
+        if hjälte.health == 0:
+            print("Hopsan, du dog, det va ju synd")
+            print("1. Vill du köra igen? \nVill du avsluta?")
 main()
+
