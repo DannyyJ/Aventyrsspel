@@ -10,50 +10,50 @@ class Itemm():
 
 
 # Art:
-svärd_art = """ """
-f = open("C:/Users/Elev/Desktop/Programmering Mapp/Aventyrsspel/svärd.txt", "r")
-for rad in f.readlines():
-    svärd_art += rad
+# svärd_art = """ """
+# f = open("C:/Users/Elev/Desktop/Programmering Mapp/Aventyrsspel/svärd.txt", "r")
+# for rad in f.readlines():
+#     svärd_art += rad
 
-laserpistol_art = """ """
-f = open("C:/Users/Elev/Desktop/Programmering Mapp/Aventyrsspel/laserpistol.txt", "r")
-for rad in f.readlines():
-    laserpistol_art += rad
+# laserpistol_art = """ """
+# f = open("C:/Users/Elev/Desktop/Programmering Mapp/Aventyrsspel/laserpistol.txt", "r")
+# for rad in f.readlines():
+#     laserpistol_art += rad
 
-lasersvärd_art = """ """
-f = open("C:/Users/Elev/Desktop/Programmering Mapp/Aventyrsspel/lasersvärd.txt", "r")
-for rad in f.readlines():
-    lasersvärd_art += rad
+# lasersvärd_art = """ """
+# f = open("C:/Users/Elev/Desktop/Programmering Mapp/Aventyrsspel/lasersvärd.txt", "r")
+# for rad in f.readlines():
+#     lasersvärd_art += rad
 
-slägga_art = """ """
-f = open("C:/Users/Elev/Desktop/Programmering Mapp/Aventyrsspel/slägga.txt", "r")
-for rad in f.readlines():
-    slägga_art += rad
+# slägga_art = """ """
+# f = open("C:/Users/Elev/Desktop/Programmering Mapp/Aventyrsspel/slägga.txt", "r")
+# for rad in f.readlines():
+#     slägga_art += rad
 
-stridsyxa_art = """ """
-f = open("C:/Users/Elev/Desktop/Programmering Mapp/Aventyrsspel/stridsyxa.txt", "r")
-for rad in f.readlines():
-    stridsyxa_art += rad
+# stridsyxa_art = """ """
+# f = open("C:/Users/Elev/Desktop/Programmering Mapp/Aventyrsspel/stridsyxa.txt", "r")
+# for rad in f.readlines():
+#     stridsyxa_art += rad
 
-dolk_art = """ """
-f = open("C:/Users/Elev/Desktop/Programmering Mapp/Aventyrsspel/dolk.txt", "r")
-for rad in f.readlines():
-    dolk_art += rad
+# dolk_art = """ """
+# f = open("C:/Users/Elev/Desktop/Programmering Mapp/Aventyrsspel/dolk.txt", "r")
+# for rad in f.readlines():
+#     dolk_art += rad
 
-bandage_art = """ """
-f = open("C:/Users/Elev/Desktop/Programmering Mapp/Aventyrsspel/bandage.txt", "r")
-for rad in f.readlines():
-    bandage_art += rad
+# bandage_art = """ """
+# f = open("C:/Users/Elev/Desktop/Programmering Mapp/Aventyrsspel/bandage.txt", "r")
+# for rad in f.readlines():
+#     bandage_art += rad
 
-hälsedryck_art = """ """
-f = open("C:/Users/Elev/Desktop/Programmering Mapp/Aventyrsspel/hälsedryck.txt", "r")
-for rad in f.readlines():
-    hälsedryck_art += rad
+# hälsedryck_art = """ """
+# f = open("C:/Users/Elev/Desktop/Programmering Mapp/Aventyrsspel/hälsedryck.txt", "r")
+# for rad in f.readlines():
+#     hälsedryck_art += rad
 
-katana_art = """ """
-f = open("C:/Users/Elev/Desktop/Programmering Mapp/Aventyrsspel/katana.txt", "r")
-for rad in f.readlines():
-    katana_art += rad
+# katana_art = """ """
+# f = open("C:/Users/Elev/Desktop/Programmering Mapp/Aventyrsspel/katana.txt", "r")
+# for rad in f.readlines():
+#     katana_art += rad
 
 # print(laserpistol_art)
 
@@ -61,39 +61,39 @@ for rad in f.readlines():
 def item():
     procent = rand.randint(1,100)
     if procent == 1:
-        print(laserpistol_art)
+        # print(laserpistol_art)
         print("Du fick en Laserpistol")
         föremål = Itemm("Laserpistol", 50, 0)
     elif procent == 2:
-        print(lasersvärd_art)
+        # print(lasersvärd_art)
         print("Du fick ett lasersvärd")
         föremål = Itemm("Lasersvärd", 50, 0)
     elif procent > 2 and procent <=12:
-        print(slägga_art)
+        # print(slägga_art)
         print("Du fick en slägga")
         föremål = Itemm("Slägga", 23, 0)
     elif procent > 12 and procent <=24:
-        print(svärd_art)
+        # print(svärd_art)
         print("Du fick ett svärd")
         föremål = Itemm("Svärd", 20, 0)
     elif procent > 24 and procent <=34:
-        print(stridsyxa_art)
+        # print(stridsyxa_art)
         print("Du fick en Strids yxa")
         föremål =Itemm("Strids yxa", 25, 0)
     elif procent > 34 and procent <= 54:
-        print(dolk_art)
+        # print(dolk_art)
         print("Du fick en dolk")
         föremål =Itemm("dolk", 10, 0)
     elif procent > 54 and procent <= 74:
-        print(bandage_art)
+        # print(bandage_art)
         print("Du fick bandage")
         föremål = Itemm("Bandage", 0, 2)
     elif procent > 74 and procent <= 89:
-        print(hälsedryck_art)
+        # print(hälsedryck_art)
         print("Du fick en Hälsedryck")
         föremål = Itemm("Hälsedryck", 0, 7)
     elif procent > 89 and procent <= 94:
-        print(katana_art)
+        # print(katana_art)
         print("Du fick en katana")
         föremål = Itemm("Katana", 35, 0)
     else:
@@ -338,7 +338,6 @@ def main():
                 #iterera genom lista mha for-loop
                 for sak in inventory:
                     print(sak.name)
-                
                 time.sleep(2)
             elif itemval == "2":
                 for sak in inventory:
@@ -346,9 +345,10 @@ def main():
                         sak.equipped = False
                         hjältestyrka -= sak.stre
                 valt_vapen == ""
-                
+                n = 1
                 for sak in inventory:
-                    print(sak.name)
+                    print(f"{n}. {sak.name}")
+                    n += 1
                 
                 val = int(input("vilket vapen vill du använda?"))
                 val -= 1
@@ -356,10 +356,21 @@ def main():
                 hjältestyrka += valt_vapen.stre
                 valt_vapen.equipped = True
             elif itemval == "3":
+                n = 1
                 for sak in inventory:
-                    if sak.heal <= 1:
-                        print(sak)
-                    heal_val = int(input("Vilken healing föremål vill du använda"))
+                    print(f"{n}. {sak.name}")
+                    n += 1
+                val = int(input("Vilket väljer du?"))
+                val -= 1
+                valt_healing = inventory[val]
+                if valt_healing.heal > 0:
+                    hjältehp += valt_healing.heal
+                    print(f"Du heala dig med {valt_healing.name} och ditt hp är nu {hjältehp}")
+                    inventory.pop(val)
+                else:
+                    print("Hoppsan, det är inget föremål som man kan heala med")
+                    pass
+                
 
             elif itemval == "4":
                 for sak in inventory:
