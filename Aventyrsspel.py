@@ -488,16 +488,4 @@ def main():
         exit()
     else:
         print("Välj ett av alternativen")
-    print("Hoppsan, du förlora")
-    time.sleep(1)
-    omkora = int(input("1.Vill du köra igen?\n2. Vill du avsluta"))
-    if omkora == 1:
-        print("Okej, då får du köra igen :)")
-        main()
-    elif omkora == 2:
-        print("Okej, vi ses :)")
-        time.sleep(2)
-        exit()
-    else:
-        print("Välj ett av alternativen")
 main()
