@@ -233,7 +233,6 @@ def fälla(hp):
     
     return hp
 
-
 def dörr(x, hjältestyrka, hjälte):
     Händelser = ["Fälla", "Monster", "Kista"]
     Vald_Händelse = rand.choice(Händelser)
@@ -246,7 +245,6 @@ def dörr(x, hjältestyrka, hjälte):
 
         valt_monster= monster()
         
-    
         hjälte.health, hjälte.level = strid(hjältestyrka, valt_monster, hjälte.health, hjälte.level)
     elif Vald_Händelse == "Kista":
         Vunnet = item()
@@ -449,4 +447,3 @@ def main():
     else:
         print("Välj ett av alternativen")
 main()
-
