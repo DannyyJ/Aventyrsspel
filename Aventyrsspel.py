@@ -233,7 +233,6 @@ def fälla(hp):
     
     return hp
 
-
 def dörr(x, hjältestyrka, hjälte):
     Händelser = ["Fälla", "Monster", "Kista"]
     Vald_Händelse = rand.choice(Händelser)
@@ -246,10 +245,13 @@ def dörr(x, hjältestyrka, hjälte):
 
         valt_monster= monster()
         
-    
         hjälte.health, hjälte.level = strid(hjältestyrka, valt_monster, hjälte.health, hjälte.level)
     elif Vald_Händelse == "Kista":
         Vunnet = item()
+        while True:
+            if len(hjälte.inventory) == 4:
+                print(
+                f"""
         while True:
             if len(hjälte.inventory) == 4:
                 print(
@@ -258,7 +260,45 @@ def dörr(x, hjältestyrka, hjälte):
                 Du har fullt inventory. Vad gör du?
                 1. Byt ut item
                 2. Släng {Vunnet.name}
+                Du har fullt inventory. Vad gör du?
+                1. Byt ut item
+                2. Släng {Vunnet.name}
 
+                
+                """)
+                val = (input("Välj mellan 1 o 2: "))
+                try:
+                    val = int(val)
+                    if val == 1:
+                        print("Dina items:")
+                        # enumerate räknar inventory och gör så att det printas ut som alternativ att välja mellan
+                        for i, sak in enumerate(hjälte.inventory, 1):
+                                print(f"{i}. {sak.name}")
+                        x = int(input("Välj vilket föremål du vill ta bort (OBS! Du måste skriva rätt position på listan): "))
+                        try: 
+                            x = int(x)
+                            if 1 <= x <= len(hjälte.inventory):
+                                x -= 1
+                                borttagna = hjälte.inventory.pop(x)
+                                hjälte.inventory.append(Vunnet)
+                                print(f"Du har bytit ut ett item för itemet {borttagna.name}")
+                                time.sleep(2)
+                                break
+                            else:
+                                print("Ange en giltig position.")
+                        except ValueError:
+                            print("Ange en giltig position.")
+                    elif val == 2:
+                        print(f"Du slänger itemet {Vunnet.name}")
+                        break
+                    else:
+                        print("Välj mellan 1 eller 2.")
+                except ValueError:
+                    print("Ange en giltig siffra.")
+            else:
+                hjälte.inventory.append(Vunnet)
+                time.sleep(2)
+                break
                 
                 """)
                 val = (input("Välj mellan 1 o 2: "))
@@ -448,5 +488,16 @@ def main():
         exit()
     else:
         print("Välj ett av alternativen")
+    print("Hoppsan, du förlora")
+    time.sleep(1)
+    omkora = int(input("1.Vill du köra igen?\n2. Vill du avsluta"))
+    if omkora == 1:
+        print("Okej, då får du köra igen :)")
+        main()
+    elif omkora == 2:
+        print("Okej, vi ses :)")
+        time.sleep(2)
+        exit()
+    else:
+        print("Välj ett av alternativen")
 main()
-
