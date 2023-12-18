@@ -67,39 +67,39 @@ def item():
     procent = rand.randint(1,100)
     if procent == 1:
         print(laserpistol_art)
-        print("Du fick en Laserpistol")
+        print("Du fick en Laserpistol och den har styrkan 50")
         föremål = Itemm("Laserpistol", 50, 0)
     elif procent == 2:
         print(lasersvärd_art)
-        print("Du fick ett lasersvärd")
+        print("Du fick ett lasersvärd och den har styrkan 50")
         föremål = Itemm("Lasersvärd", 50, 0)
     elif procent > 2 and procent <=12:
         print(slägga_art)
-        print("Du fick en slägga")
+        print("Du fick en slägga och den har styrkan 3")
         föremål = Itemm("Slägga", 3, 0)
     elif procent > 12 and procent <=24:
         print(svärd_art)
-        print("Du fick ett svärd")
+        print("Du fick ett svärd och den har styrkan 4")
         föremål = Itemm("Svärd", 4, 0)
     elif procent > 24 and procent <=34:
         print(stridsyxa_art)
-        print("Du fick en Strids yxa")
+        print("Du fick en Strids yxa och den har styrkan 4")
         föremål =Itemm("Strids yxa", 4, 0)
     elif procent > 34 and procent <= 54:
         print(dolk_art)
-        print("Du fick en dolk")
+        print("Du fick en dolk och den har styrkan 1")
         föremål =Itemm("dolk", 1, 0)
     elif procent > 54 and procent <= 74:
         print(bandage_art)
-        print("Du fick bandage")
+        print("Du fick bandage och den healar 1")
         föremål = Itemm("Bandage", 0, 1)
     elif procent > 74 and procent <= 89:
         print(hälsedryck_art)
-        print("Du fick en Hälsedryck")
+        print("Du fick en Hälsedryck och den healar 4")
         föremål = Itemm("Hälsedryck", 0, 4)
     elif procent > 89 and procent <= 94:
         print(katana_art)
-        print("Du fick en katana")
+        print("Du fick en katana och den har styrkan 5")
         föremål = Itemm("Katana", 5, 0)
     else:
         print("""
@@ -179,14 +179,34 @@ def strid(hs,monster,hp,xp):
         
         if stridval == "1":
             if hs > monster.styrka:
-                print("Du vann")
+                print(f"""
+                      Ni började slås
+                      Blodet rinner
+                      Men från vem?
+                      Det är från din fiende
+                      Du är starkare än monstret
+                      Du vinner striden mot monstret och går upp en level
+                      """)
+                time.sleep(4)
                 xp += 1
                 break
             elif hs == monster.styrka:
-                print("Ni är lika starka så ingen av er förlorar")
+                print("""
+                      Ni båda är lika starka
+                      Ni båda väljer att gå ifrån varandra utan att slåss vidare
+                      """)
+                time.sleep(3)
                 break
             else:
-                print("Du förlora")
+                print(f"""
+                      Ni började slås
+                      Blodet rinner
+                      Men från vem?
+                      Det är från dig själv
+                      Du har inte styrkan att vinna över monstret
+                      Du förlorar striden och förlorar 1 hp
+                      """)
+                time.sleep(4)
                 hp -= 1
                 break
 
@@ -218,7 +238,7 @@ def fälla(hp):
 
 """)
     print("DU HAMNA I EN FÄLLA!")
-    print(f"TRYCK: {bokstav}")
+    print(f"TRYCK: {bokstav} OCH SEN ENTER!")
     start = time.time()
     svar = input()
     if svar.lower() == bokstav.lower():
@@ -227,7 +247,11 @@ def fälla(hp):
             print(f"DU KLARADE DET PÅ: {slut-start}")
             time.sleep(2)
         else:
-            print("Hopsan, Du hann inte och förlorade 1 hp")
+            print("""
+                  Hopsan, Du hann inte
+                  Fällan fastna i ditt ben och gjorde så du började blöda
+                  Du förlorade 1 hp
+                  """)
             hp -= 1
             time.sleep(2)
     
@@ -252,53 +276,10 @@ def dörr(x, hjältestyrka, hjälte):
             if len(hjälte.inventory) == 4:
                 print(
                 f"""
-        while True:
-            if len(hjälte.inventory) == 4:
-                print(
-                f"""
 
                 Du har fullt inventory. Vad gör du?
                 1. Byt ut item
                 2. Släng {Vunnet.name}
-                Du har fullt inventory. Vad gör du?
-                1. Byt ut item
-                2. Släng {Vunnet.name}
-
-                
-                """)
-                val = (input("Välj mellan 1 o 2: "))
-                try:
-                    val = int(val)
-                    if val == 1:
-                        print("Dina items:")
-                        # enumerate räknar inventory och gör så att det printas ut som alternativ att välja mellan
-                        for i, sak in enumerate(hjälte.inventory, 1):
-                                print(f"{i}. {sak.name}")
-                        x = int(input("Välj vilket föremål du vill ta bort (OBS! Du måste skriva rätt position på listan): "))
-                        try: 
-                            x = int(x)
-                            if 1 <= x <= len(hjälte.inventory):
-                                x -= 1
-                                borttagna = hjälte.inventory.pop(x)
-                                hjälte.inventory.append(Vunnet)
-                                print(f"Du har bytit ut ett item för itemet {borttagna.name}")
-                                time.sleep(2)
-                                break
-                            else:
-                                print("Ange en giltig position.")
-                        except ValueError:
-                            print("Ange en giltig position.")
-                    elif val == 2:
-                        print(f"Du slänger itemet {Vunnet.name}")
-                        break
-                    else:
-                        print("Välj mellan 1 eller 2.")
-                except ValueError:
-                    print("Ange en giltig siffra.")
-            else:
-                hjälte.inventory.append(Vunnet)
-                time.sleep(2)
-                break
                 
                 """)
                 val = (input("Välj mellan 1 o 2: "))
